@@ -1,12 +1,12 @@
 export const PROMOTIONS = [
     {
       id: 0,
-      name: 'Weekend Grand Buffet',
+      name: 'Wine and CheeseCombo!!',
       image: '/assets/images/wine and cheese combo.jpg',
       label: 'New',
       price: '19.99',
       featured: true,
-      description: 'Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person'
+      description: 'Featuring mouthwatering combinations with a variety of wines and cheeses. Now available at just Rs. 1999/-'
     },
     {
       id: 1,
@@ -15,6 +15,6 @@ export const PROMOTIONS = [
       label: 'Baguettes, Sourdoughs, and Swiss rolls',
       price: '599',
       featured: true,
-      description: 'Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!'
+      description: 'At Charcuterie we have a whole range of assorted breads combo for all the bread lovers out there! This assorted basket of bread comes with a loaf each of sourdough, parmesan garlic, wholewheat grain, stuffed cheese and garlic breads!'
     }
   ];

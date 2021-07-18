@@ -30,12 +30,12 @@ const items = [
     {
       src: "./assets/images/breads.jpg",
       altText: 'Whole Range of Assorted Breads!',
-      caption: 'Whole Range of Assorted Breads!'
+      caption: 'At Charcuterie we have a whole range of assorted breads combo for all the bread lovers out there! This assorted basket of bread comes with a loaf each of sourdough, parmesan garlic, wholewheat grain, stuffed cheese and garlic breads!'
     },
     {
       src: "./assets/images/platter.jpg",
       altText: 'Cheese Platter!',
-      caption: 'Cheese Platter!'
+      caption: 'Chef’s Choice selection of cheeses & charcuterie with fig preserves, cream of balsamic, olives, housemade balsamic candied walnuts, honey & cornichons. Served with rustic crackers and Krema housemade crusty French baguette.'
     },
     {
       src: "./assets/images/wine and cheese combo.jpg",
@@ -72,7 +72,7 @@ const MenuItems = (props) => {
           key={item.src}
         >
           <img className="carousel-image" src={item.src} alt={item.altText} />
-          <CarouselCaption className="col-6 align-carousal ml-auto mr-auto col-jumbotron" captionText={item.caption} captionHeader={item.caption} />
+          <CarouselCaption className="col-6 align-carousal ml-auto mr-auto col-jumbotron" captionText={item.caption} captionHeader={item.altText} />
         </CarouselItem>
       );
     });

@@ -58,7 +58,11 @@ class Header extends Component {
                 isLoggedIn: !this.state.isLoggedIn
             })
 
-        });
+        }).catch(
+            (error) => {
+                alert(error.message);
+            }
+        );;
         this.render();
         //alert("Username: "+ this.username.value + "Password: " + this.pwd.value
         //+ "Remember: "+ this.remember.checked);
@@ -79,7 +83,11 @@ class Header extends Component {
             localStorage.setItem("isLoggedIn", false);
 
         }
-        );
+        ).catch(
+            (error) => {
+                alert(error.message);
+            }
+        );;
         this.render();
 
     }
@@ -110,7 +118,11 @@ class Header extends Component {
             )
             localStorage.setItem("isLoggedIn", true);
 
-        });
+        }).catch(
+            (error) => {
+                alert(error.message);
+            }
+        );
         this.render();
         //alert("Username: "+ this.username.value + "Password: " + this.pwd.value
         //+ "Remember: "+ this.remember.checked);
@@ -123,7 +135,7 @@ class Header extends Component {
                     <div className="container">
                         <NavbarToggler onClick={this.toggleNav} />
                         <NavbarBrand className="mr-auto" href="/">
-                            <img src="assets/images/logo.png" height="30" width="41" alt="Ristorante Con Fusion" />
+                            <img src="assets/images/logo.jpg" height="30" width="41" alt="Charcueterie" />
                         </NavbarBrand>
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar variant="pills">

@@ -57,10 +57,16 @@ function RenderMenuItem({ dish, onClick }) {
 
 const Cart = () => {
     const [dishes, setDishes] = useState([]);
+    const [amount, setAmount] = useState(0);
+    const [showAmt, setShowAmt] = useState(false);
     useEffect(() => {
         let newDb = new Firebase();
-        newDb.db.collection('users').doc(localStorage.getItem("uid")).get().then(data => {
-            setDishes(data.data().cart)
+        newDb.db.collection('users').doc(localStorage.getItem("uid")).onSnapshot(data => {
+            let temp = data.data().cart;
+            let tempAmt = 0;
+            setDishes(temp);
+            temp.map((ele) => tempAmt += (ele.price*ele.qty))
+            setAmount(tempAmt);
         });
     }, []);
     console.log(dishes);
@@ -84,6 +90,17 @@ const Cart = () => {
         );
 
     }
+    const handleClear = () => {
+        let newDb = new Firebase();
+        newDb.db.collection('users').doc(localStorage.getItem("uid")).update({ "cart": [] }).then(
+            () => {
+                setDishes([]);
+                alert("Order Placed Succesfully!")
+            }
+        );
+
+
+    }
     return (
         <div className="container">
             <div className="row">
@@ -98,17 +115,33 @@ const Cart = () => {
             </div>
             {
                 dishes.length != 0 ?
-                <div>
+                    <div className="ml-auto">
 
-                    <div className="row">
-                        {menu}                        
-                    </div>
-                    <div className="row">
-                        <Button color="success">
-                            Generate Bill
-                        </Button>
-                    </div>
-                </div> :
+                        <div className="row">
+                            {menu}
+                        </div>
+                        <div className="row align-self-center">
+                            <div className="col-12 d-flex flex-column align-self-center justify-content-center">
+                                <Button color="success" onClick={() => { setShowAmt(true) }}>
+                                    Generate Bill
+                                </Button>
+                                {
+                                    (showAmt) &&
+                                    (
+                                        <div>
+                                            <div className=" text-center w-100">Total Amount = Rs. {amount}/-</div>
+                                            <div className="d-flex flex-col align-self-center justify-content-center">
+                                                <Button color="light" onClick={handleClear}>
+                                                    Place Order!
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    )
+
+                                }
+                            </div>
+                        </div>
+                    </div> :
                     <div className="row">
                         No items added!
                     </div>

@@ -33,6 +33,6 @@ export const LEADERS = [
       designation: 'Baguettes, Sourdoughs, and Swiss rolls',
       abbr: 'EC',
       featured: true,
-      description: 'Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!'
+      description: 'At Charcuterie we have a whole range of assorted breads combo for all the bread lovers out there! This assorted basket of bread comes with a loaf each of sourdough, parmesan garlic, wholewheat grain, stuffed cheese and garlic breads!'
     }
   ];
