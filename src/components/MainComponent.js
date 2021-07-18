@@ -6,6 +6,7 @@ import Home from './HomeComponent';
 import Footer from './FooterComponent';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
+import Cart from './CartComponent';
 import {Switch, Route, Redirect, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 
@@ -31,7 +32,7 @@ class Main extends Component {
       return(
         <Home dish={this.props.dishes.filter((dish) => dish.featured)[0]}
         promotion={this.props.promotions.filter((promo) => promo.featured)[0]}
-        leader={this.props.leaders.filter((leader) => leader.featured)[0]}/>
+        leader={this.props.promotions.filter((leader) => leader.featured)[1]}/>
       );
     }
 
@@ -53,6 +54,7 @@ class Main extends Component {
             <Route exact path = "/aboutus" component={() => <About leaders={this.props.leaders}/>} />
             <Route path="/menu/:dishId" component={DishWithId}/>
             <Route exact path="/contactus" component={Contact} />
+            <Route exact path="/cart" component={Cart} />
             <Redirect to="/home" />            
           </Switch>
         <Footer/>

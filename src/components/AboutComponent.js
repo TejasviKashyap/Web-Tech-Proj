@@ -1,31 +1,96 @@
-import React from 'react';
-import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
+import React, {useState} from 'react';
+import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media,Carousel,CarouselItem,CarouselCaption,CarouselControl,CarouselIndicators } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 
-function RenderLeader({leaders}){
-    return(
-        <div>           
-            {leaders.map((leader) => {
-                
-                    return(
-                        <Media  key={leader.id}>
-                        <Media className = "mr-5">
-                            <Media object data src={leader.image} alt="Alberto.png" />
-                        </Media>
-                        <Media body>
-                            <Media heading><p>{leader.name}</p></Media>
-                            <Media h2><p>{leader.designation}</p></Media>
-                            <p>{leader.description}</p>
-                        </Media>
-                        </Media>
-                    );
-            })}
-          
-            
-        </div>
+// function RenderLeader({ leaders }) {
+//     return (
+//         <div>
+//             {leaders.map((leader) => {
+
+//                 return (
+//                     <Media key={leader.id}>
+//                         <Media className="mr-5">
+//                             <Media object data src={leader.image} alt="Alberto.png" />
+//                         </Media>
+//                         <Media body>
+//                             <Media heading><p>{leader.name}</p></Media>
+//                             <Media h2><p>{leader.designation}</p></Media>
+//                             <p>{leader.description}</p>
+//                         </Media>
+//                     </Media>
+//                 );
+//             })}
+
+
+//         </div>
+//     );
+// }
+const items = [
+    {
+      src: "./assets/images/breads.jpg",
+      altText: 'Whole Range of Assorted Breads!',
+      caption: 'Whole Range of Assorted Breads!'
+    },
+    {
+      src: "./assets/images/platter.jpg",
+      altText: 'Cheese Platter!',
+      caption: 'Cheese Platter!'
+    },
+    {
+      src: "./assets/images/wine and cheese combo.jpg",
+      altText: 'Wine and Cheese Combo!',
+      caption: 'Wine and Cheese Combo!'
+    }
+  ];
+const MenuItems = (props) => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [animating, setAnimating] = useState(false);
+  
+    const next = () => {
+      if (animating) return;
+      const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+      setActiveIndex(nextIndex);
+    }
+  
+    const previous = () => {
+      if (animating) return;
+      const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+      setActiveIndex(nextIndex);
+    }
+  
+    const goToIndex = (newIndex) => {
+      if (animating) return;
+      setActiveIndex(newIndex);
+    }
+  
+    const slides = items.map((item) => {
+      return (
+        <CarouselItem
+          onExiting={() => setAnimating(true)}
+          onExited={() => setAnimating(false)}
+          key={item.src}
+        >
+          <img className="carousel-image" src={item.src} alt={item.altText} />
+          <CarouselCaption className="col-6 align-carousal ml-auto mr-auto col-jumbotron" captionText={item.caption} captionHeader={item.caption} />
+        </CarouselItem>
+      );
+    });
+  
+    return (
+      <Carousel
+        activeIndex={activeIndex}
+        next={next}
+        previous={previous}
+      >
+        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+        {slides}
+        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+        <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+      </Carousel>
     );
 }
+  
 
 function About(props) {
 
@@ -35,7 +100,7 @@ function About(props) {
         );
     });
 
-    return(
+    return (
         <div className="container">
             <div className="row">
                 <Breadcrumb>
@@ -45,25 +110,25 @@ function About(props) {
                 <div className="col-12">
                     <h3>About Us</h3>
                     <hr />
-                </div>                
+                </div>
             </div>
             <div className="row row-content">
                 <div className="col-12 col-md-6">
-                    <h2>Our History</h2>
-                    <p>Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us.</p>
-                    <p>The restaurant traces its humble beginnings to <em>The Frying Pan</em>, a successful chain started by our CEO, Mr. Peter Pan, that featured for the first time the world's best cuisines in a pan.</p>
+                    <h4>Cheeses, Wines and Breads</h4>
+                    <p>A fine wine and artisan cheese shop, wine bar and cafe located in historic downtown Whitefield, featuring artisanal cheese and charcuterié, smaller production wines, craft beer and cocktails, gourmet cafe menu and wine tastings available to order anytime.</p>
+                    <p>Charcuterié is your destination wine shop to sip, nibble and enjoy in downtown Whitefield. Stop in to browse our diverse selection of boutique wines and assorted cheeses, stay for a meal with friends and make sure to bring your favorites home to share.</p>
                 </div>
-                <div className="col-12 col-md-5">
+                <div className="col-12 col-md-6">
                     <Card>
                         <CardHeader className="bg-primary text-white">Facts At a Glance</CardHeader>
                         <CardBody>
                             <dl className="row p-1">
                                 <dt className="col-6">Started</dt>
-                                <dd className="col-6">3 Feb. 2013</dd>
+                                <dd className="col-6">4 June, 2021</dd>
                                 <dt className="col-6">Major Stake Holder</dt>
-                                <dd className="col-6">HK Fine Foods Inc.</dd>
+                                <dd className="col-6">SAPA</dd>
                                 <dt className="col-6">Last Year's Turnover</dt>
-                                <dd className="col-6">$1,250,375</dd>
+                                <dd className="col-6">Rs. 1.25 Crores</dd>
                                 <dt className="col-6">Employees</dt>
                                 <dd className="col-6">40</dd>
                             </dl>
@@ -74,11 +139,10 @@ function About(props) {
                     <Card>
                         <CardBody className="bg-faded">
                             <blockquote className="blockquote">
-                                <p className="mb-0">You better cut the pizza in four pieces because
-                                    I'm not hungry enough to eat six.</p>
+                                <p className="mb-0">Who said I was drinking alone?!? ...I had Wine AND Cheese.</p>
                                 <footer className="blockquote-footer">Yogi Berra,
-                                <cite title="Source Title">The Wit and Wisdom of Yogi Berra,
-                                    P. Pepe, Diversion Books, 2014</cite>
+                                    <cite title="Source Title">The Wit and Wisdom of Yogi Berra,
+                                        P. Pepe, Diversion Books, 2014</cite>
                                 </footer>
                             </blockquote>
                         </CardBody>
@@ -87,16 +151,19 @@ function About(props) {
             </div>
             <div className="row row-content">
                 <div className="col-12">
-                    <h2>Corporate Leadership</h2>
+                    <h2>Our carousal</h2>
                 </div>
-                <div className="col-12">
+                {/* <div className="col-12">
                     <Media list>
                         <RenderLeader leaders={props.leaders} />
                     </Media>
+                </div> */}
+                <div className="col-12">
+                    <MenuItems />
                 </div>
             </div>
         </div>
     );
 }
 
-export default About;    
+export default About;

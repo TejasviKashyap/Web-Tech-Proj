@@ -1,6 +1,63 @@
+
+
 .row-header{
     margin:0px auto;
     padding:0px auto;
+    /*background-color: rgba(255, 255, 255, 0.51) !important;
+    color: black !important;*/
+}
+
+.col-jumbotron{
+    background-color: rgba(255, 255, 255, 0.51) !important;
+    color: black !important;
+}
+.font-black{
+    color: black !important;
+}
+.card-img-top{
+    height: 264px;
+    aspect-ratio: 1;
+    
+}
+
+.align-carousal{
+    align-self: center;
+    align-content: center;
+    align-items: center;
+}
+
+.card-img{
+    height: 480px;
+    aspect-ratio: 1;
+    
+}
+.card-title {
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    
+}
+.carousel-image {
+    height: 400px;
+    width: inherit;
+
+}
+.card {
+    margin: 10px;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    /* background-color: rgba(214, 188, 214, 0.387) !important; */
+    /* background-color: #e6e6e6;
+    color: black !important; */
+    background-color: black !important;
+    color: white !important;
+
+}
+
+.dark-input{
+    background-color: black !important;
+    color: white !important;
 }
 
 .row-content {
@@ -11,23 +68,45 @@
 }
 
 .footer{
-    background-color: #D1C4E9;
+    /* background-color: #D1C4E9; */
+    /* background-color: #e6e6e6 !important; */
+    background-color: black;
     margin:0px auto;
     padding: 20px 0px 20px 0px;
+    color: white;
 }
-.jumbotron {
-    padding:70px 30px 70px 30px;
-    margin:0px auto;
-    background: #9575CD ;
-    color:floralwhite;
+
+
+.menu-img {
+    height: 764px;
+    width: 764px;
 }
 
 address{
     font-size:80%;
     margin:0px;
-    color:#0f0f0f;
+    /* color:#0f0f0f; */
+    color: white;
 }
 
 .navbar-dark {
-    background-color: #512DA8;
+    /* background-color: #512DA8; */
+    background-color: black !important;
+}
+
+.media-object{
+    height: 105px;
+    width: 105px;
+}
+
+.jumbotron {
+    padding:70px 30px 70px 30px;
+    margin:0px auto;
+    
+   background-image: url("./images/breads.jpg") !important;
+   background-size: cover;
+   /* opacity: 0.5;
+    background: #9575CD !important;
+    color:floralwhite;*/
+    color: black !important;
 }

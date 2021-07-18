@@ -39,7 +39,7 @@ class Contact extends Component {
                             <BreadcrumbItem active>Contact Us</BreadcrumbItem>
                         </Breadcrumb>
                         <div className="col-12">
-                            <h3>Menu</h3>
+                            <h3>Our Details</h3>
                             <hr />
                         </div>
                     </div>
@@ -60,6 +60,9 @@ class Contact extends Component {
                     </div>
                     <div className="col-12 col-sm-6 offset-sm-1">
                         <h5>Map of our Location</h5>
+                        <img src="./assets/images/map.png" alt="121, Clear Water Bay Road,
+                            Clear Water Bay, Kowloon,
+                            HONG KONG" height = "200px" width="400px" />
                     </div>
                     <div className="col-12 col-sm-11 offset-sm-1">
                         <div className="btn-group" role="group">
@@ -83,7 +86,7 @@ class Contact extends Component {
                                      <Errors className="text-danger" model=".firstname" show="touched"
                                      messages = {{
                                          required: 'Required',
-                                         minLength: 'Must be greater than 2 characters',
+                                         minLength: 'Must be greater than 3 characters',
                                          maxLength: 'Must be 15 characters or less'
                                      }}
                                     />
@@ -97,9 +100,9 @@ class Contact extends Component {
                                     placeholder="Last Name" validators = {{required, minLength: minLength(3), maxLength: maxLength(15)}} />
                                     <Errors className="text-danger" model=".lastname" show="touched"
                                      messages = {{
-                                         required: 'Required',
-                                         minLength: 'Must be greater than 2 characters',
-                                         maxLength: 'Must be 15 characters or less'
+                                         required: 'Required ',
+                                         minLength: 'Must be greater than 3 characters ',
+                                         maxLength: 'Must be 15 characters or less '
                                      }}
                                     />
                                 </Col>
@@ -172,5 +175,4 @@ class Contact extends Component {
     }
     
 }
-
 export default Contact;

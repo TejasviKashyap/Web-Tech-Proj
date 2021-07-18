@@ -2,13 +2,13 @@ export const DISHES =
     [
         {
         id: 0,
-        name:'Uthappizza',
-        image: '/assets/images/uthappizza.png',
+        name:'Uthapizza',
+        image: '/assets/images/zucchipakoda.png',
         category: 'mains',
         label:'Hot',
         price:'4.99',
-        featured: true,
-        description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.'                    
+        featured: false,
+        description:'Chef’s Choice selection of cheeses & charcuterie with fig preserves, cream of balsamic, olives, housemade balsamic candied walnuts, honey & cornichons. Served with rustic crackers and Krema housemade crusty French baguette.'                    
         },
         {
         id: 1,
@@ -39,5 +39,15 @@ export const DISHES =
         price:'2.99',
         featured: false,
         description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms'
-        }
+        },
+        {
+            id: 4,
+            name:'Cheese Platter',
+            image: '/assets/images/platter.jpg',
+            category: 'mains',
+            label:'Hot',
+            price:'4.99',
+            featured: true,
+            description:'Chef’s Choice selection of cheeses & charcuterie with fig preserves, cream of balsamic, olives, housemade balsamic candied walnuts, honey & cornichons. Served with rustic crackers and Krema housemade crusty French baguette.'                    
+            }
     ];
